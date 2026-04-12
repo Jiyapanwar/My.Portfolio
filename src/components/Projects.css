@@ -1,0 +1,142 @@
+.projects-section {
+  background-color: var(--color-dark-teal);
+  color: var(--color-white);
+  padding: 8rem 2rem;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-title {
+  font-family: var(--font-secondary);
+  font-size: clamp(3rem, 8vw, 6rem);
+  border-bottom: 2px solid var(--color-lime);
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  color: var(--color-lime);
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.project-row:hover .project-name {
+  color: var(--color-lime);
+  padding-left: 1rem;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.project-name {
+  font-family: var(--font-secondary);
+  font-size: clamp(2rem, 5vw, 4rem);
+  flex-basis: 40%;
+  transition: all 0.3s ease;
+}
+
+.project-category {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 300;
+  flex-basis: 40%;
+  opacity: 0.8;
+  text-align: left;
+}
+
+.project-year {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  flex-basis: 20%;
+  text-align: right;
+  opacity: 0.7;
+}
+
+/* Responsive row setup */
+@media (max-width: 768px) {
+  .project-header {
+    flex-wrap: wrap;
+    padding: 1.5rem 0;
+  }
+  .project-name { flex-basis: 100%; margin-bottom: 0.5rem; }
+  .project-category { flex-basis: 50%; }
+  .project-year { flex-basis: 50%; }
+}
+
+.project-details {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.project-details-inner {
+  padding: 4rem 2rem;
+  max-width: 800px;
+}
+
+.project-details-title {
+  font-family: var(--font-secondary);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.project-details-description {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.project-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.tech-pill {
+  background-color: var(--color-lime);
+  color: var(--color-dark-teal);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: var(--font-secondary);
+  letter-spacing: 0.05em;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+  border-radius: 50px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background-color: var(--color-white);
+  color: var(--color-dark-teal);
+}

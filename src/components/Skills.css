@@ -1,0 +1,99 @@
+.skills-section {
+  background-color: var(--color-white);
+  padding: 8rem 2rem;
+  color: var(--color-dark-teal);
+}
+
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.skills-title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  margin-bottom: 1rem;
+  color: var(--color-blue);
+}
+
+.skills-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-dark-teal);
+  opacity: 0.8;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  perspective: 1000px;
+  height: 250px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.skill-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: 20px;
+}
+
+.skill-card:hover .skill-card-inner {
+  transform: rotateY(180deg);
+}
+
+.skill-card-front, .skill-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.skill-card-front {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  border: 2px solid transparent;
+}
+
+.skill-card-front h3 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.skill-card-back {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  transform: rotateY(180deg);
+  border: 2px solid transparent;
+}
+
+.skill-card-back h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-white);
+}
+
+.skill-card-back p {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 300;
+}

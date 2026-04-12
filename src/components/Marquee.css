@@ -1,0 +1,68 @@
+.marquee-section {
+  background-color: var(--color-lime);
+  color: var(--color-dark-teal);
+  padding: 4rem 0;
+  overflow: hidden;
+  border-top: 1px solid var(--color-dark-teal);
+  border-bottom: 1px solid var(--color-dark-teal);
+}
+
+.marquee-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.marquee-row {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: flex;
+  animation: scrollLeft 40s linear infinite;
+  width: max-content;
+}
+
+.marquee-row.reverse .marquee-content {
+  animation: scrollRight 40s linear infinite;
+  /* Start offset to create variation */
+  transform: translateX(-50%);
+}
+
+.marquee-item {
+  font-family: var(--font-secondary);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  line-height: 1;
+  padding-right: 2rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.marquee-item .dot {
+  color: var(--color-dark-teal);
+  margin-left: 2rem;
+  font-size: 0.8em;
+  opacity: 0.5;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Based on how we duplicated items */
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

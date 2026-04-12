@@ -1,0 +1,50 @@
+.cta-section {
+  background-color: var(--color-lime);
+  color: var(--color-dark-teal);
+  padding: 10rem 2rem;
+  text-align: center;
+}
+
+.cta-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta-title {
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 0.9;
+  margin-bottom: 2rem;
+}
+
+.cta-subtitle {
+  font-family: var(--font-primary);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 300;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  opacity: 0.8;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--color-dark-teal);
+  color: var(--color-white);
+  font-family: var(--font-secondary);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  padding: 1.5rem 4rem;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--color-white);
+  color: var(--color-dark-teal);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
