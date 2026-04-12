@@ -1,13 +1,14 @@
 :root {
-  --color-dark-teal: #004D43;
-  --color-lime: #CDEA69;
-  --color-blue: #0365CA;
-  --color-white: #FFFFFF;
-  --color-red: #FB2B37;
-  --color-black: #0B0B0B;
-  
-  --font-primary: "Inter Tight", sans-serif;
-  --font-secondary: "Bebas Neue", "Oswald", sans-serif;
+  --color-dark-teal: #004d43;
+  --color-lime: #cdea69;
+  --color-blue: #0365ca;
+  --color-white: #ffffff;
+  --color-red: #fb2b37;
+  --color-black: #0b0b0b;
+
+  --font-secondary: "Inter Tight", sans-serif;
+  --font-primary: "Bebas Neue", "Oswald", sans-serif;
+  --font-hero: "Marcellus-64e16875af337bfc", "Marcellus", Arial, sans-serif;
 }
 
 * {
@@ -16,7 +17,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   overflow-x: hidden;
   font-family: var(--font-primary);
@@ -25,7 +27,12 @@ html, body {
   scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-secondary);
   font-weight: 400; /* Bebas Neue is a single weight font */
   letter-spacing: 0.05em;

@@ -1,0 +1,111 @@
+.experience-section {
+  background-color: var(--color-white);
+  color: var(--color-dark-teal);
+  padding: 8rem 2rem;
+}
+
+.experience-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.experience-title {
+  font-family: var(--font-primary);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  margin-bottom: 4rem;
+  color: var(--color-dark-teal);
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--color-dark-teal);
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Hover line that slides in from the left */
+.experience-row::before {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-blue);
+  transition: width 0.4s ease;
+  z-index: 10;
+}
+
+.experience-row:hover::before {
+  width: 100%;
+}
+
+.experience-row:hover .experience-role {
+  color: var(--color-blue);
+}
+
+.experience-left {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 60%;
+}
+
+.experience-role {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.experience-description {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 300;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.experience-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-basis: 40%;
+  text-align: right;
+}
+
+.experience-company, .experience-duration {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.experience-company {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.experience-duration {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .experience-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 0;
+    gap: 1.5rem;
+  }
+  .experience-left { flex-basis: 100%; }
+  .experience-right { flex-basis: 100%; align-items: flex-start; text-align: left; }
+}

@@ -4,47 +4,59 @@
   width: 100%;
   background-color: var(--color-dark-teal);
   color: var(--color-white);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
-  padding: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-left: 5vw;
+  padding-bottom: 6vw;
 }
 
 .hero-content {
-  text-align: center;
-  max-width: 1200px;
-  width: 100%;
+  text-align: left;
+  max-width: 1400px;
+}
+
+.hero-text-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-title {
+  font-family: var(--font-hero);
   font-size: clamp(4rem, 15vw, 15vw);
-  line-height: 0.9;
+  line-height: 0.85;
   margin: 0;
-  color: var(--color-white);
+  color: var(--color-lime);
   text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+  /* Preparation for GSAP clip-path reveal */
+  opacity: 0;
 }
 
 .hero-subtitle {
-  font-family: var(--font-primary);
+  font-family: var(--font-hero);
   font-size: clamp(1.2rem, 3vw, 2.5rem);
-  font-weight: 300;
-  margin-top: 1rem;
+  font-weight: 400;
+  margin-top: 2rem;
   margin-bottom: 3rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0;
+}
+
+.hero-button-wrapper {
+  opacity: 0;
 }
 
 .hero-button {
   display: inline-block;
   background-color: var(--color-lime);
   color: var(--color-dark-teal);
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
   font-size: 1.5rem;
   padding: 1rem 2.5rem;
   border-radius: 50px;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: 500;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(205, 234, 105, 0.3);
 }
@@ -58,10 +70,20 @@
 .scroll-indicator {
   position: absolute;
   bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--color-lime);
+  right: 5vw; /* Moved to right because left is occupied now */
+  color: var(--color-red);
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
 }

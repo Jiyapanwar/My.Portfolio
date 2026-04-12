@@ -43,7 +43,7 @@
 }
 
 .marquee-item .dot {
-  color: var(--color-dark-teal);
+  color: var(--color-red);
   margin-left: 2rem;
   font-size: 0.8em;
   opacity: 0.5;
