@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import "./Projects.css";
 
@@ -8,12 +8,12 @@ const projectsList = [
   {
     id: 1,
     name: "Zinc",
-    category: "Full Stack Dashboard",
+    category: "Linux Security Scanner",
     year: "2024",
     description:
-      "A comprehensive modern dashboard application featuring complex data visualization, role-based access control, and real-time updates.",
-    techs: ["React", "Node.js", "MongoDB", "Chart.js"],
-    link: "https://github.com/Jiyapanwar/Zinc",
+      "A comprehensive Custom Linux Security Scanner built with Shell scripting. Automates critical security vulnerability checks including open ports mapping, weak password detection, and malware tracing. Processes active system logs and enforces strict file permissions to maintain server integrity.",
+    techs: ["Shell", "Bash", "Nmap", "Hashcat"],
+    link: "https://github.com/Jiyapanwar/zinc",
   },
   {
     id: 2,
@@ -38,11 +38,18 @@ const projectsList = [
 ];
 
 const Projects = () => {
-  const [expandedId, setExpandedId] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
 
-  const toggleExpand = (id) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedProject]);
 
   return (
     <section className="projects-section">
@@ -61,49 +68,94 @@ const Projects = () => {
             <ProjectRow
               key={project.id}
               project={project}
-              isExpanded={expandedId === project.id}
-              onToggle={() => toggleExpand(project.id)}
+              onClick={() => setSelectedProject(project)}
             />
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 };
 
-const ProjectRow = ({ project, isExpanded, onToggle }) => {
+const ProjectRow = ({ project, onClick }) => {
   return (
     <motion.div
-      className={`project-row ${isExpanded ? "expanded" : ""}`}
-      layout
-      transition={{ layout: { duration: 0.4, type: "spring", bounce: 0.2 } }}
+      className="project-row"
+      layoutId={`project-container-${project.id}`}
+      onClick={onClick}
     >
-      <motion.div className="project-header" onClick={onToggle} layout>
+      <motion.div className="project-header" layoutId={`project-header-${project.id}`}>
         <div className="project-meta">
-          <span className="project-year">{project.year}</span>
-          <span className="project-category">{project.category}</span>
+          <motion.span className="project-year" layoutId={`project-year-${project.id}`}>
+            {project.year}
+          </motion.span>
+          <motion.span className="project-category" layoutId={`project-category-${project.id}`}>
+            {project.category}
+          </motion.span>
         </div>
-        <span className="project-name">{project.name}</span>
+        <motion.span className="project-name" layoutId={`project-name-${project.id}`}>
+          {project.name}
+        </motion.span>
       </motion.div>
+    </motion.div>
+  );
+};
 
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            className="project-details"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <div className="project-details-inner">
-              <h3 className="project-details-title">{project.name}</h3>
-              <p className="project-details-description">
-                {project.description}
-              </p>
+const ProjectModal = ({ project, onClose }) => {
+  return (
+    <motion.div
+      className="project-fullscreen-overlay"
+      layoutId={`project-container-${project.id}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <div className="project-fullscreen-content">
+        <button className="project-close-btn" onClick={onClose}>
+          <ArrowLeft size={20} />
+          Go back
+        </button>
 
-              <div className="project-techs">
+        <motion.div className="project-fullscreen-header" layoutId={`project-header-${project.id}`}>
+          <div className="project-meta">
+            <motion.span className="project-year" layoutId={`project-year-${project.id}`}>
+              {project.year}
+            </motion.span>
+            <motion.span className="project-category" layoutId={`project-category-${project.id}`}>
+              {project.category}
+            </motion.span>
+          </div>
+          <motion.span className="project-name" layoutId={`project-name-${project.id}`}>
+            {project.name}
+          </motion.span>
+        </motion.div>
+
+        <motion.div
+          className="project-fullscreen-body"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <div className="project-fullscreen-overview">
+            <div className="project-fullscreen-description">
+              <h3>Overview</h3>
+              <p>{project.description}</p>
+            </div>
+
+            <div className="project-fullscreen-sidebar">
+              <h3>Technologies</h3>
+              <div className="fullscreen-techs">
                 {project.techs.map((tech, idx) => (
-                  <span key={idx} className="tech-pill">
+                  <span key={idx} className="fullscreen-tech-pill">
                     {tech}
                   </span>
                 ))}
@@ -113,14 +165,14 @@ const ProjectRow = ({ project, isExpanded, onToggle }) => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="project-link"
+                className="fullscreen-project-link"
               >
-                View on GitHub <FaGithub size={18} />
+                View Repository <FaGithub size={20} />
               </a>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </motion.div>
+      </div>
     </motion.div>
   );
 };
