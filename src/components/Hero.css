@@ -24,7 +24,7 @@
 
 .hero-title {
   font-family: var(--font-hero);
-  font-size: clamp(4rem, 15vw, 15vw);
+  font-size: clamp(4.5rem, 16vw, 16vw);
   line-height: 0.85;
   margin: 0;
   color: var(--color-lime);
@@ -35,30 +35,30 @@
 
 .hero-subtitle {
   font-family: var(--font-hero);
-  font-size: clamp(1.2rem, 3vw, 2.5rem);
-  font-weight: 400;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: 900;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #fb2b37;
   opacity: 0;
 }
 
-.hero-button-wrapper {
+/* .hero-button-wrapper {
   opacity: 0;
-}
+} */
 
 .hero-button {
   display: inline-block;
-  background-color: var(--color-lime);
-  color: var(--color-dark-teal);
+  /* background-color: var(--color-lime); */
+  color: #cdea69;
   font-family: var(--font-primary);
   font-size: 1.5rem;
   padding: 1rem 2.5rem;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(205, 234, 105, 0.3);
+  /* box-shadow: 0 4px 15px rgba(205, 234, 105, 0.3); */
 }
 
 .hero-button:hover {

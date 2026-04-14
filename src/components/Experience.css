@@ -25,7 +25,7 @@
 .experience-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 3rem 0;
   border-bottom: 1px solid var(--color-dark-teal);
   position: relative;
@@ -68,11 +68,26 @@
   transition: color 0.3s ease;
 }
 
+.experience-description-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease, margin 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.experience-row:hover .experience-description-wrapper {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 1.5rem;
+}
+
 .experience-description {
-  font-family: var(--font-primary);
+  overflow: hidden;
+  font-family: var(--font-secondary);
   font-size: 1.1rem;
   font-weight: 300;
-  opacity: 0.8;
+  line-height: 1.6;
+  color: var(--color-blue);
   margin: 0;
 }
 

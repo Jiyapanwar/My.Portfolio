@@ -11,8 +11,8 @@
 
 .navbar.scrolled {
   padding: 1.2rem 2rem;
-  background-color: var(--color-dark-teal);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .navbar-container {
@@ -33,14 +33,14 @@
 .nav-link {
   font-family: var(--font-primary);
   font-weight: 300;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-white);
+  color: #cdea69;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: var(--color-lime);
+  color: #fb2b37;
 }

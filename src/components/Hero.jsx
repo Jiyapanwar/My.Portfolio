@@ -64,10 +64,10 @@ const Hero = ({ isPreloaded }) => {
         </div>
 
         <p className="hero-subtitle" ref={subtitleRef}>
-          Making the web less ugly &middot; one component at a time.
+          Making the web less ugly &middot; one component at a time
         </p>
 
-        <div ref={buttonRef} className="hero-button-wrapper">
+        {/* <div ref={buttonRef} className="hero-button-wrapper">
           <a
             href="/resume.pdf"
             target="_blank"
@@ -76,7 +76,7 @@ const Hero = ({ isPreloaded }) => {
           >
             View Resume
           </a>
-        </div>
+        </div> */}
       </div>
 
       {isPreloaded && (

@@ -10,7 +10,6 @@ import Marquee from './components/Marquee';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Cta from './components/Cta';
-import Footer from './components/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,30 +17,15 @@ function App() {
   const [isPreloaded, setIsPreloaded] = useState(false);
   const containerRef = useRef(null);
   const ctaRef = useRef(null);
-  const footerWrapperRef = useRef(null);
-  const footerRef = useRef(null);
   
   useGSAP(() => {
     // Wait for elements to be fully mounted
-    if (!ctaRef.current || !footerWrapperRef.current || !footerRef.current) return;
+    if (!ctaRef.current) return;
 
     // Removing the buggy pin on ctaRef that causes scrollbar jittering and height miscalculations.
     // The yPercent mask parallax below achieves the perfect peel natively.
 
-    // Parallax animate the footer coming up from behind
-    gsap.fromTo(footerRef.current, 
-      { yPercent: 100 },
-      {
-        yPercent: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: footerWrapperRef.current,
-          start: "top bottom",
-          end: "bottom bottom",
-          scrub: true
-        }
-      }
-    );
+    // Footer parallax animation removed natively.
     
   }, { scope: containerRef, dependencies: [isPreloaded] });
 
@@ -68,19 +52,6 @@ function App() {
         <Cta />
       </div>
       
-      <div 
-        ref={footerWrapperRef} 
-        style={{ 
-          position: "relative", 
-          zIndex: 1, 
-          overflow: "hidden",
-          width: "100%"
-        }}
-      >
-        <div ref={footerRef}>
-          <Footer />
-        </div>
-      </div>
     </main>
   );
 }

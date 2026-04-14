@@ -1,19 +1,21 @@
-import React from 'react';
-import './Experience.css';
+import React from "react";
+import "./Experience.css";
 
 const experiences = [
   {
-    role: 'Research Intern',
-    company: '[Company/Lab Name]',
-    duration: '[Duration]',
-    description: '[Brief description of research work]'
+    role: "Research Intern – AI-Driven Fraud Detection in FinTech",
+    company: "Bennett University",
+    duration: "June 2024 – July 2024",
+    description:
+      "Analyzed financial transaction datasets to validate fraud detection models using structured metrics. Contributed to research documentation and presented findings at ICCCNet-2024, resulting in a Springer publication.",
   },
   {
-    role: 'Freelance Developer',
-    company: 'Self-Employed',
-    duration: '[Duration]',
-    description: '[Brief description — e.g., built web apps for clients]'
-  }
+    role: "Freelance Creative / Web Developer",
+    company: "Self-Employed",
+    duration: "Present",
+    description:
+      "Specialized in creative web development. Delivered customized digital solutions tailored to client needs, emphasizing high performance, aesthetics, and engaging user experiences.",
+  },
 ];
 
 const Experience = () => {
@@ -27,7 +29,11 @@ const Experience = () => {
             <div key={idx} className="experience-row">
               <div className="experience-left">
                 <h3 className="experience-role">{exp.role}</h3>
-                <p className="experience-description">{exp.description}</p>
+                <div className="experience-description-wrapper">
+                  <div className="experience-description">
+                    {exp.description}
+                  </div>
+                </div>
               </div>
               <div className="experience-right">
                 <span className="experience-company">{exp.company}</span>

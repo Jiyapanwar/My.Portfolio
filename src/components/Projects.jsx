@@ -9,7 +9,7 @@ const projectsList = [
     id: 1,
     name: 'Zinc',
     category: 'Full Stack Dashboard',
-    year: '2023',
+    year: '2024',
     description: 'A comprehensive modern dashboard application featuring complex data visualization, role-based access control, and real-time updates.',
     techs: ['React', 'Node.js', 'MongoDB', 'Chart.js'],
     link: 'https://github.com/Jiyapanwar/Zinc'
@@ -25,21 +25,12 @@ const projectsList = [
   },
   {
     id: 3,
-    name: 'AI Image Gen',
-    category: 'AI Application',
+    name: 'Route-X',
+    category: 'Ride-Hailing Platform',
     year: '2024',
-    description: 'An AI-powered image generation tool utilizing OpenAI\'s DALL-E models, featuring a prompt gallery and user authentication.',
-    techs: ['React', 'OpenAI API', 'MongoDB'],
-    link: 'https://github.com/Jiyapanwar'
-  },
-  {
-    id: 4,
-    name: 'Portfolio',
-    category: 'Creative Development',
-    year: '2025',
-    description: 'A highly interactive animated portfolio built to showcase personal projects and technical skills focusing on performant UI.',
-    techs: ['React', 'Framer Motion', 'Vite'],
-    link: 'https://github.com/Jiyapanwar/portfolio'
+    description: 'A ride-hailing application built with the MERN stack, featuring real-time location tracking, driver-user matching, and secure OTP-validated rides.',
+    techs: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
+    link: 'https://github.com/karan-6969/Route-X'
   }
 ];
 
@@ -59,7 +50,7 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          FEATURED WORK
+          PROJECTS
         </motion.h2>
 
         <div className="projects-list">
