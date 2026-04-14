@@ -16,6 +16,7 @@
   padding-bottom: 1rem;
   margin-bottom: 3rem;
   color: var(--color-lime);
+  text-align: right;
 }
 
 .projects-list {
@@ -31,7 +32,7 @@
 
 .project-row:hover .project-name {
   color: var(--color-lime);
-  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .project-header {
@@ -46,36 +47,48 @@
 .project-name {
   font-family: var(--font-secondary);
   font-size: clamp(2rem, 5vw, 4rem);
-  flex-basis: 40%;
+  flex-basis: 50%;
+  text-align: right;
   transition: all 0.3s ease;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-basis: 50%;
 }
 
 .project-category {
   font-family: var(--font-primary);
   font-size: 1.2rem;
   font-weight: 300;
-  flex-basis: 40%;
   opacity: 0.8;
-  text-align: left;
 }
 
 .project-year {
   font-family: var(--font-primary);
   font-size: 1.2rem;
-  flex-basis: 20%;
-  text-align: right;
   opacity: 0.7;
 }
 
 /* Responsive row setup */
 @media (max-width: 768px) {
   .project-header {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
     padding: 1.5rem 0;
   }
-  .project-name { flex-basis: 100%; margin-bottom: 0.5rem; }
-  .project-category { flex-basis: 50%; }
-  .project-year { flex-basis: 50%; }
+  .project-meta {
+    gap: 1.5rem;
+    flex-basis: auto;
+  }
+  .project-name {
+    flex-basis: auto;
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .project-details {
