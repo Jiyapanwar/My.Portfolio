@@ -33,7 +33,7 @@ const projectsList = [
     description:
       "A ride-hailing application built with the MERN stack, featuring real-time location tracking, driver-user matching, and secure OTP-validated rides.",
     techs: ["React", "Node.js", "Socket.io", "MongoDB"],
-    link: "https://github.com/karan-6969/Route-X",
+    link: "https://github.com/Jiyapanwar/RouteX",
   },
 ];
 
@@ -93,16 +93,28 @@ const ProjectRow = ({ project, onClick }) => {
       layoutId={`project-container-${project.id}`}
       onClick={onClick}
     >
-      <motion.div className="project-header" layoutId={`project-header-${project.id}`}>
+      <motion.div
+        className="project-header"
+        layoutId={`project-header-${project.id}`}
+      >
         <div className="project-meta">
-          <motion.span className="project-year" layoutId={`project-year-${project.id}`}>
+          <motion.span
+            className="project-year"
+            layoutId={`project-year-${project.id}`}
+          >
             {project.year}
           </motion.span>
-          <motion.span className="project-category" layoutId={`project-category-${project.id}`}>
+          <motion.span
+            className="project-category"
+            layoutId={`project-category-${project.id}`}
+          >
             {project.category}
           </motion.span>
         </div>
-        <motion.span className="project-name" layoutId={`project-name-${project.id}`}>
+        <motion.span
+          className="project-name"
+          layoutId={`project-name-${project.id}`}
+        >
           {project.name}
         </motion.span>
       </motion.div>
@@ -125,16 +137,28 @@ const ProjectModal = ({ project, onClose }) => {
           Go back
         </button>
 
-        <motion.div className="project-fullscreen-header" layoutId={`project-header-${project.id}`}>
+        <motion.div
+          className="project-fullscreen-header"
+          layoutId={`project-header-${project.id}`}
+        >
           <div className="project-meta">
-            <motion.span className="project-year" layoutId={`project-year-${project.id}`}>
+            <motion.span
+              className="project-year"
+              layoutId={`project-year-${project.id}`}
+            >
               {project.year}
             </motion.span>
-            <motion.span className="project-category" layoutId={`project-category-${project.id}`}>
+            <motion.span
+              className="project-category"
+              layoutId={`project-category-${project.id}`}
+            >
               {project.category}
             </motion.span>
           </div>
-          <motion.span className="project-name" layoutId={`project-name-${project.id}`}>
+          <motion.span
+            className="project-name"
+            layoutId={`project-name-${project.id}`}
+          >
             {project.name}
           </motion.span>
         </motion.div>
